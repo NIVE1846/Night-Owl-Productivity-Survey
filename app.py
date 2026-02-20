@@ -74,23 +74,31 @@ st.markdown("""
     }
 </style>
 """, unsafe_allow_html=True)
-
-CSV_FILE = "data/survey_responses.csv"
+CSV_FILE = "survey_responses.csv"
 
 def validate_email(email):
     return re.match(r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$", email)
 
 def save_response(data):
     df = pd.DataFrame([data])
-    if os.path.exists(CSV_FILE):
-        df.to_csv(CSV_FILE, mode='a', header=False, index=False)
-    else:
-        df.to_csv(CSV_FILE, index=False)
+    try:
+        if os.path.exists(CSV_FILE):
+            df.to_csv(CSV_FILE, mode='a', header=False, index=False)
+        else:
+            df.to_csv(CSV_FILE, index=False)
+    except:
+        # Fallback: use session state if file system not writable
+        if 'responses' not in st.session_state:
+            st.session_state.responses = []
+        st.session_state.responses.append(data)
 
 def load_data():
     if os.path.exists(CSV_FILE):
         return pd.read_csv(CSV_FILE)
+    elif 'responses' in st.session_state and st.session_state.responses:
+        return pd.DataFrame(st.session_state.responses)
     return None
+
 
 page = st.sidebar.radio("Navigate", ["🦉 Survey", "📊 Analysis"])
 
