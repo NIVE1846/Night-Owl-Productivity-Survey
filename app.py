@@ -124,12 +124,12 @@ def admin_login():
 
 admin_login()
 
-# Always show Survey and Analysis to everyone
+# Only Survey is public, everything else needs admin
 if check_admin():
     page = st.sidebar.radio("Navigate", ["🦉 Survey", "📊 Analysis", "📋 Responses", "📄 Report"])
 else:
-    page = st.sidebar.radio("Navigate", ["🦉 Survey", "📊 Analysis"])
-    st.sidebar.info("🔒 Login as admin to view Responses & Reports")
+    page = st.sidebar.radio("Navigate", ["🦉 Survey"])
+    st.sidebar.info("🔒 Login as admin to view Analysis, Responses & Reports")
 
 if page == "🦉 Survey":
     st.markdown('<h1>🦉 Night Owl Productivity Survey</h1>', unsafe_allow_html=True)
@@ -287,7 +287,11 @@ elif page == "📄 Report":
             html = f"<html><body style='font-family:Arial;max-width:800px;margin:50px auto;'>{report.replace(chr(10), '<br>')}</body></html>"
             st.download_button("📥 Download Report (HTML)", html, "survey_report.html", "text/html")
 
-else:
+elif page == "📊 Analysis":
+    if not check_admin():
+        st.error("🔒 Admin access required!")
+        st.stop()
+    
     st.title("📊 Analysis Dashboard")
     df = load_data()
     
