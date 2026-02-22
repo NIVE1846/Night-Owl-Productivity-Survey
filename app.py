@@ -74,6 +74,7 @@ st.markdown("""
     }
 </style>
 """, unsafe_allow_html=True)
+
 CSV_FILE = "survey_responses.csv"
 
 def validate_email(email):
@@ -98,7 +99,6 @@ def load_data():
     elif 'responses' in st.session_state and st.session_state.responses:
         return pd.DataFrame(st.session_state.responses)
     return None
-
 
 page = st.sidebar.radio("Navigate", ["🦉 Survey", "📊 Analysis"])
 
@@ -376,3 +376,4 @@ else:
             with col_export2:
                 json_data = df.to_json(orient='records', indent=2)
                 st.download_button("📥 Download JSON", json_data, "survey_data.json", "application/json")
+
