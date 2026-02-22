@@ -100,7 +100,32 @@ def load_data():
         return pd.DataFrame(st.session_state.responses)
     return None
 
-page = st.sidebar.radio("Navigate", ["🦉 Survey", "📊 Analysis"])
+def check_admin():
+    if 'admin_logged_in' not in st.session_state:
+        st.session_state.admin_logged_in = False
+    return st.session_state.admin_logged_in
+
+def admin_login():
+    st.sidebar.markdown("---")
+    st.sidebar.subheader("🔐 Admin Access")
+    password = st.sidebar.text_input("Password", type="password", key="admin_pass")
+    if st.sidebar.button("Login"):
+        if password == "admin123":  # Change this password!
+            st.session_state.admin_logged_in = True
+            st.sidebar.success("Logged in!")
+        else:
+            st.sidebar.error("Wrong password!")
+    if st.session_state.admin_logged_in:
+        if st.sidebar.button("Logout"):
+            st.session_state.admin_logged_in = False
+
+admin_login()
+
+if check_admin():
+    page = st.sidebar.radio("Navigate", ["🦉 Survey", "📊 Analysis", "📋 Responses", "📄 Report"])
+else:
+    page = st.sidebar.radio("Navigate", ["🦉 Survey", "📊 Analysis"])
+    st.sidebar.info("🔒 Login as admin to view Responses & Reports")
 
 if page == "🦉 Survey":
     st.markdown('<h1>🦉 Night Owl Productivity Survey</h1>', unsafe_allow_html=True)
@@ -171,6 +196,93 @@ if page == "🦉 Survey":
                 st.success("✅ Response recorded!")
                 st.balloons()
 
+elif page == "📋 Responses":
+    if not check_admin():
+        st.error("🔒 Admin access required!")
+        st.stop()
+    
+    st.title("📋 Survey Responses List")
+    df = load_data()
+    
+    if df is None or len(df) == 0:
+        st.warning("No responses yet!")
+    else:
+        st.success(f"Total Responses: {len(df)}")
+        
+        col1, col2, col3 = st.columns(3)
+        with col1:
+            filter_chronotype = st.multiselect("Filter by Chronotype", df['chronotype'].unique(), default=list(df['chronotype'].unique()))
+        with col2:
+            filter_occupation = st.multiselect("Filter by Occupation", df['occupation'].unique(), default=list(df['occupation'].unique()))
+        with col3:
+            search = st.text_input("Search by Name/Email")
+        
+        filtered_df = df[df['chronotype'].isin(filter_chronotype) & df['occupation'].isin(filter_occupation)]
+        if search:
+            filtered_df = filtered_df[filtered_df['name'].str.contains(search, case=False, na=False) | 
+                                     filtered_df['email'].str.contains(search, case=False, na=False)]
+        
+        st.info(f"Showing {len(filtered_df)} of {len(df)} responses")
+        
+        for idx, row in filtered_df.iterrows():
+            with st.expander(f"#{idx+1} - {row['name']} ({row['chronotype']}) - {row['timestamp']}"):
+                col_a, col_b = st.columns(2)
+                with col_a:
+                    st.write(f"**Email:** {row['email']}")
+                    st.write(f"**Age:** {row['age']}")
+                    st.write(f"**Occupation:** {row['occupation']}")
+                    st.write(f"**Work Hours:** {row['work_hours']}")
+                    st.write(f"**Sleep:** {row['sleep_time']} - {row['wake_time']} ({row['sleep_duration']}h)")
+                    st.write(f"**Sleep Quality:** {row['sleep_quality']}")
+                with col_b:
+                    st.write(f"**Productivity:** {row['productivity']}/10")
+                    st.write(f"**Focus Duration:** {row['focus_duration']} min")
+                    st.write(f"**Device Usage:** {row['device_usage']}h")
+                    st.write(f"**Social Media:** {row['social_media']}h")
+                    st.write(f"**Distraction Level:** {row['distraction_level']}")
+                    st.write(f"**Stress:** {row['stress_level']}")
+                    st.write(f"**Energy Peak:** {row['energy_pattern']}")
+                    st.write(f"**Next-day Fatigue:** {row['next_day_fatigue']}")
+
+elif page == "📄 Report":
+    if not check_admin():
+        st.error("🔒 Admin access required!")
+        st.stop()
+    
+    st.title("📄 Generate Analysis Report")
+    df = load_data()
+    
+    if df is None or len(df) == 0:
+        st.warning("No data to generate report!")
+    else:
+        st.info("Generate a comprehensive report of your survey analysis")
+        
+        report = f"""# 🦉 Night Owl Productivity Survey - Analysis Report\n\n**Generated:** {datetime.now().strftime("%Y-%m-%d %H:%M:%S")}\n\n---\n\n## 📊 Executive Summary\n\n- **Total Responses:** {len(df)}\n- **Average Productivity:** {df['productivity'].mean():.2f}/10\n- **Average Sleep:** {df['sleep_duration'].mean():.2f}h\n\n---\n\n## 🎯 Key Findings\n\n### Chronotype Distribution\n"""
+        
+        for chrono, count in df['chronotype'].value_counts().items():
+            report += f"- **{chrono}:** {count} ({count/len(df)*100:.1f}%)\n"
+        
+        report += "\n### Productivity Analysis\n\n"
+        
+        night_owls = df[df['chronotype'] == 'Night Owl 🦉']
+        early_birds = df[df['chronotype'] == 'Early Bird 🌅']
+        
+        if len(night_owls) > 0 and len(early_birds) > 0:
+            report += f"- **Night Owls:** {night_owls['productivity'].mean():.2f}/10\n- **Early Birds:** {early_birds['productivity'].mean():.2f}/10\n\n"
+            t_stat, p_value = stats.ttest_ind(night_owls['productivity'].dropna(), early_birds['productivity'].dropna())
+            report += f"**Statistical Test:** T-stat={t_stat:.3f}, P-value={p_value:.4f} ({'Significant' if p_value < 0.05 else 'Not significant'})\n\n"
+        
+        report += f"""---\n\n## 💤 Sleep Patterns\n\n- **Average Sleep:** {df['sleep_duration'].mean():.2f}h\n- **Most Common Quality:** {df['sleep_quality'].mode()[0]}\n\n---\n\n## 📱 Digital Habits\n\n- **Device Usage:** {df['device_usage'].mean():.2f}h/day\n- **Social Media:** {df['social_media'].mean():.2f}h/day\n\n---\n\n*Report generated by Night Owl Survey App*"""
+        
+        st.markdown(report)
+        
+        col1, col2 = st.columns(2)
+        with col1:
+            st.download_button("📥 Download Report (MD)", report, "survey_report.md", "text/markdown")
+        with col2:
+            html = f"<html><body style='font-family:Arial;max-width:800px;margin:50px auto;'>{report.replace(chr(10), '<br>')}</body></html>"
+            st.download_button("📥 Download Report (HTML)", html, "survey_report.html", "text/html")
+
 else:
     st.title("📊 Analysis Dashboard")
     df = load_data()
@@ -216,7 +328,7 @@ else:
             with col6:
                 fig2 = px.box(df, x='occupation', y='productivity', color='chronotype',
                             title="Productivity by Occupation & Chronotype")
-                fig2.update_xaxis(tickangle=45)
+                fig2.update_layout(xaxis_tickangle=45)
                 st.plotly_chart(fig2, use_container_width=True)
             
             st.subheader("🎯 Key Performance Indicators")
@@ -376,4 +488,3 @@ else:
             with col_export2:
                 json_data = df.to_json(orient='records', indent=2)
                 st.download_button("📥 Download JSON", json_data, "survey_data.json", "application/json")
-
