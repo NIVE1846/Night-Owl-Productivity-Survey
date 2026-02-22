@@ -113,7 +113,7 @@ def admin_login():
     st.sidebar.subheader("🔐 Admin Access")
     password = st.sidebar.text_input("Password", type="password", key="admin_pass")
     if st.sidebar.button("Login"):
-        if password == "DGPN7@nive":
+        if password == "admin123":
             st.session_state.admin_logged_in = True
             st.sidebar.success("Logged in!")
         else:
@@ -419,8 +419,7 @@ elif page == "📊 Analysis":
             col6, col7 = st.columns(2)
             with col6:
                 fig8 = px.scatter(df, x='sleep_duration', y='productivity', color='chronotype',
-                                trendline='ols', trendline_scope='overall',
-                                title="Sleep Duration vs Productivity (OLS Regression)")
+                                title="Sleep Duration vs Productivity")
                 st.plotly_chart(fig8, use_container_width=True)
                 
                 # Calculate R-squared
@@ -433,7 +432,7 @@ elif page == "📊 Analysis":
             
             with col7:
                 fig9 = px.scatter(df, x='distraction_score', y='productivity', color='chronotype',
-                                trendline='lowess', title="Distraction Score vs Productivity (LOWESS)")
+                                title="Distraction Score vs Productivity")
                 st.plotly_chart(fig9, use_container_width=True)
             
             # Pairplot alternative
@@ -496,3 +495,4 @@ elif page == "📊 Analysis":
             with col_export2:
                 json_data = df.to_json(orient='records', indent=2)
                 st.download_button("📥 Download JSON", json_data, "survey_data.json", "application/json")
+
