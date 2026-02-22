@@ -106,11 +106,14 @@ def check_admin():
     return st.session_state.admin_logged_in
 
 def admin_login():
+    if 'admin_logged_in' not in st.session_state:
+        st.session_state.admin_logged_in = False
+    
     st.sidebar.markdown("---")
     st.sidebar.subheader("🔐 Admin Access")
     password = st.sidebar.text_input("Password", type="password", key="admin_pass")
     if st.sidebar.button("Login"):
-        if password == "admin123":  # Change this password!
+        if password == "admin123":
             st.session_state.admin_logged_in = True
             st.sidebar.success("Logged in!")
         else:
@@ -121,6 +124,7 @@ def admin_login():
 
 admin_login()
 
+# Always show Survey and Analysis to everyone
 if check_admin():
     page = st.sidebar.radio("Navigate", ["🦉 Survey", "📊 Analysis", "📋 Responses", "📄 Report"])
 else:
