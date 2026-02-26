@@ -9,6 +9,8 @@ import numpy as np
 from scipy import stats
 from sklearn.preprocessing import LabelEncoder
 from sklearn.cluster import KMeans
+import matplotlib.pyplot as plt
+import seaborn as sns
 
 st.set_page_config(page_title="Night Owl Survey", page_icon="🦉", layout="wide")
 
@@ -100,6 +102,42 @@ def load_data():
         return pd.DataFrame(st.session_state.responses)
     return None
 
+def generate_sample_data(n=100):
+    """Generate fake survey data for demo purposes"""
+    np.random.seed(42)
+    chronotypes = ['Night Owl 🦉', 'Early Bird 🌅', 'Somewhere in Between']
+    occupations = ['Student', 'Software Developer', 'Designer', 'Manager', 'Teacher']
+    names = ['Alex', 'Jordan', 'Taylor', 'Morgan', 'Casey', 'Riley', 'Avery', 'Quinn']
+    
+    data = []
+    for i in range(n):
+        chronotype = np.random.choice(chronotypes)
+        productivity = np.random.randint(3, 10) if chronotype == 'Night Owl 🦉' else np.random.randint(4, 10)
+        sleep = np.random.randint(5, 9) if chronotype == 'Early Bird 🌅' else np.random.randint(4, 8)
+        
+        data.append({
+            'timestamp': (datetime.now() - pd.Timedelta(days=np.random.randint(0, 30))).strftime("%Y-%m-%d %H:%M:%S"),
+            'name': f"{np.random.choice(names)} {i+1}",
+            'email': f"user{i+1}@example.com",
+            'age': np.random.randint(18, 65),
+            'occupation': np.random.choice(occupations),
+            'work_hours': np.random.choice(['Morning (8-11 AM)', 'Afternoon (2-5 PM)', 'Evening (5-9 PM)', 'Night (9 PM-12 AM)']),
+            'chronotype': chronotype,
+            'sleep_time': f"{np.random.randint(21, 24):02d}:00" if chronotype == 'Night Owl 🦉' else f"{np.random.randint(21, 23):02d}:00",
+            'wake_time': f"{np.random.randint(6, 9):02d}:00" if chronotype == 'Early Bird 🌅' else f"{np.random.randint(7, 11):02d}:00",
+            'sleep_duration': sleep,
+            'sleep_quality': np.random.choice(['Fair', 'Good', 'Excellent']),
+            'device_usage': np.random.randint(4, 12),
+            'social_media': np.random.randint(1, 6),
+            'distraction_level': np.random.choice(['Slightly', 'Moderately', 'Very']),
+            'productivity': productivity,
+            'focus_duration': np.random.randint(30, 180),
+            'stress_level': np.random.choice(['Low', 'Moderate', 'High']),
+            'energy_pattern': 'Night' if chronotype == 'Night Owl 🦉' else 'Morning',
+            'next_day_fatigue': np.random.choice(['Sometimes', 'Often', 'Rarely'])
+        })
+    return pd.DataFrame(data)
+
 def check_admin():
     if 'admin_logged_in' not in st.session_state:
         st.session_state.admin_logged_in = False
@@ -113,7 +151,7 @@ def admin_login():
     st.sidebar.subheader("🔐 Admin Access")
     password = st.sidebar.text_input("Password", type="password", key="admin_pass")
     if st.sidebar.button("Login"):
-        if password == "DGPN7@nive":
+        if password == "admin123":
             st.session_state.admin_logged_in = True
             st.sidebar.success("Logged in!")
         else:
@@ -313,7 +351,7 @@ elif page == "📊 Analysis":
         df['sleep_efficiency'] = df['productivity'] / df['sleep_duration']
         df['digital_dependency'] = df['device_usage'] + df['social_media']
         
-        tab1, tab2, tab3, tab4, tab5 = st.tabs(["📊 Overview", "🦉 Chronotype", "📈 Correlations", "🤖 ML Insights", "💾 Data"])
+        tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(["📊 Overview", "🦉 Chronotype", "📈 Correlations", "🤖 ML Insights", "📉 Matplotlib Viz", "💾 Data"])
         
         with tab1:
             col1, col2, col3, col4 = st.columns(4)
@@ -485,6 +523,81 @@ elif page == "📊 Analysis":
             st.dataframe(df[numeric_cols].describe().T, use_container_width=True)
         
         with tab5:
+            st.subheader("📉 Matplotlib Visualizations")
+            sns.set_style("whitegrid")
+            
+            col1, col2 = st.columns(2)
+            with col1:
+                fig, ax = plt.subplots(figsize=(8, 6))
+                chronotype_counts = df['chronotype'].value_counts()
+                ax.pie(chronotype_counts.values, labels=chronotype_counts.index, autopct='%1.1f%%', startangle=90)
+                ax.set_title('Chronotype Distribution', fontsize=14, fontweight='bold')
+                st.pyplot(fig)
+            
+            with col2:
+                fig, ax = plt.subplots(figsize=(8, 6))
+                df.groupby('chronotype')['productivity'].mean().plot(kind='bar', ax=ax, color=['#667eea', '#764ba2', '#f093fb'])
+                ax.set_title('Average Productivity by Chronotype', fontsize=14, fontweight='bold')
+                ax.set_ylabel('Productivity Score')
+                ax.set_xlabel('Chronotype')
+                plt.xticks(rotation=45, ha='right')
+                st.pyplot(fig)
+            
+            st.markdown("### Sleep vs Productivity")
+            fig, ax = plt.subplots(figsize=(10, 6))
+            for chrono in df['chronotype'].unique():
+                data = df[df['chronotype'] == chrono]
+                ax.scatter(data['sleep_duration'], data['productivity'], label=chrono, alpha=0.6, s=100)
+            ax.set_xlabel('Sleep Duration (hours)', fontsize=12)
+            ax.set_ylabel('Productivity Score', fontsize=12)
+            ax.set_title('Sleep Duration vs Productivity by Chronotype', fontsize=14, fontweight='bold')
+            ax.legend()
+            ax.grid(True, alpha=0.3)
+            st.pyplot(fig)
+            
+            col3, col4 = st.columns(2)
+            with col3:
+                fig, ax = plt.subplots(figsize=(8, 6))
+                sns.violinplot(data=df, x='chronotype', y='focus_duration', ax=ax, palette='Set2')
+                ax.set_title('Focus Duration Distribution', fontsize=14, fontweight='bold')
+                ax.set_ylabel('Focus Duration (minutes)')
+                plt.xticks(rotation=45, ha='right')
+                st.pyplot(fig)
+            
+            with col4:
+                fig, ax = plt.subplots(figsize=(8, 6))
+                df.groupby('occupation')['productivity'].mean().sort_values().plot(kind='barh', ax=ax, color='#667eea')
+                ax.set_title('Productivity by Occupation', fontsize=14, fontweight='bold')
+                ax.set_xlabel('Average Productivity')
+                st.pyplot(fig)
+            
+            st.markdown("### Correlation Heatmap")
+            fig, ax = plt.subplots(figsize=(10, 8))
+            numeric_cols = ['productivity', 'sleep_duration', 'device_usage', 'social_media', 'focus_duration', 'age']
+            corr_matrix = df[numeric_cols].corr()
+            sns.heatmap(corr_matrix, annot=True, fmt='.2f', cmap='coolwarm', center=0, ax=ax, square=True)
+            ax.set_title('Correlation Matrix', fontsize=14, fontweight='bold')
+            st.pyplot(fig)
+            
+            col5, col6 = st.columns(2)
+            with col5:
+                fig, ax = plt.subplots(figsize=(8, 6))
+                df['device_usage'].hist(bins=15, ax=ax, color='#764ba2', edgecolor='black', alpha=0.7)
+                ax.set_title('Device Usage Distribution', fontsize=14, fontweight='bold')
+                ax.set_xlabel('Hours per Day')
+                ax.set_ylabel('Frequency')
+                st.pyplot(fig)
+            
+            with col6:
+                fig, ax = plt.subplots(figsize=(8, 6))
+                df.boxplot(column='productivity', by='energy_pattern', ax=ax)
+                ax.set_title('Productivity by Energy Pattern', fontsize=14, fontweight='bold')
+                ax.set_xlabel('Energy Pattern')
+                ax.set_ylabel('Productivity Score')
+                plt.suptitle('')
+                st.pyplot(fig)
+        
+        with tab6:
             st.subheader("💾 Raw Data Export")
             st.dataframe(df, use_container_width=True)
             
@@ -495,4 +608,3 @@ elif page == "📊 Analysis":
             with col_export2:
                 json_data = df.to_json(orient='records', indent=2)
                 st.download_button("📥 Download JSON", json_data, "survey_data.json", "application/json")
-
