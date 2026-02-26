@@ -1,0 +1,87 @@
+timestamp,name,email,age,occupation,work_hours,chronotype,sleep_time,wake_time,sleep_duration,sleep_quality,device_usage,social_media,distraction_level,productivity,focus_duration,stress_level,energy_pattern,next_day_fatigue
+2024-12-15 09:23:45,AKSHATH M,akshath.m@example.com,21,Student,Night (9 PM-12 AM),Night Owl 🦉,23:30,08:00,6,Good,8,3,Moderately,7,90,Moderate,Night,Sometimes
+2024-12-14 14:12:33,ANAAS RAWOOF S,anaas.rawoof@example.com,20,Student,Evening (5-9 PM),Night Owl 🦉,00:00,09:00,7,Fair,9,4,Very,6,75,High,Night,Often
+2024-12-13 11:45:22,BALAJI S,balaji.s@example.com,22,Student,Morning (8-11 AM),Early Bird 🌅,22:00,06:30,7,Excellent,7,2,Slightly,8,120,Low,Morning,Rarely
+2024-12-12 16:34:11,BARATH KUMAR E,barath.kumar@example.com,21,Student,Afternoon (2-5 PM),Somewhere in Between,22:30,07:00,7,Good,6,3,Moderately,7,100,Moderate,Afternoon,Sometimes
+2024-12-11 10:22:56,DEEPAKKUMAR S,deepakkumar.s@example.com,23,Student,Night (9 PM-12 AM),Night Owl 🦉,01:00,09:30,7,Fair,10,5,Very,6,60,High,Night,Often
+2024-12-10 13:15:44,DEEPAK SANJAY,deepak.sanjay@example.com,20,Student,Evening (5-9 PM),Night Owl 🦉,23:00,07:30,6,Good,8,4,Moderately,7,85,Moderate,Evening,Sometimes
+2024-12-09 08:45:33,DEVANAND G,devanand.g@example.com,22,Student,Morning (8-11 AM),Early Bird 🌅,21:30,06:00,8,Excellent,6,2,Slightly,9,150,Low,Morning,Rarely
+2024-12-08 15:30:22,DEVASH S,devash.s@example.com,21,Student,Night (9 PM-12 AM),Night Owl 🦉,00:30,08:30,6,Fair,9,4,Very,6,70,High,Night,Often
+2024-12-07 12:20:11,HAAMIDSHA D,haamidsha.d@example.com,20,Student,Afternoon (2-5 PM),Somewhere in Between,22:00,07:00,7,Good,7,3,Moderately,7,95,Moderate,Afternoon,Sometimes
+2024-12-06 09:10:55,HARISH BADHRESWAR S,harish.badhreswar@example.com,23,Student,Morning (8-11 AM),Early Bird 🌅,21:00,05:30,8,Excellent,8,2,Slightly,9,140,Low,Morning,Rarely
+2024-12-05 14:55:44,JAGAN M,jagan.m@example.com,21,Student,Evening (5-9 PM),Night Owl 🦉,23:30,08:00,7,Good,8,3,Moderately,7,80,Moderate,Evening,Sometimes
+2024-12-04 11:40:33,JAISURYA S,jaisurya.s@example.com,22,Student,Night (9 PM-12 AM),Night Owl 🦉,00:00,09:00,7,Fair,10,5,Very,6,65,High,Night,Often
+2024-12-03 16:25:22,J SURYA,j.surya@example.com,20,Student,Morning (8-11 AM),Early Bird 🌅,22:00,06:30,7,Good,6,2,Slightly,8,110,Low,Morning,Rarely
+2024-12-02 13:15:11,KARUN C,karun.c@example.com,21,Student,Afternoon (2-5 PM),Somewhere in Between,22:30,07:30,7,Good,7,3,Moderately,7,90,Moderate,Afternoon,Sometimes
+2024-12-01 10:05:55,LIBI JASSIN W,libi.jassin@example.com,23,Student,Evening (5-9 PM),Night Owl 🦉,23:00,08:00,7,Fair,9,4,Moderately,7,85,Moderate,Evening,Sometimes
+2024-11-30 15:50:44,MOHAMED ABRAR S,mohamed.abrar@example.com,22,Student,Night (9 PM-12 AM),Night Owl 🦉,01:00,09:30,6,Fair,10,5,Very,6,70,High,Night,Often
+2024-11-29 12:35:33,MOHAMED SADHATH J,mohamed.sadhath@example.com,21,Student,Morning (8-11 AM),Early Bird 🌅,21:30,06:00,8,Excellent,7,2,Slightly,9,130,Low,Morning,Rarely
+2024-11-28 09:20:22,MONISH S,monish.s@example.com,20,Student,Afternoon (2-5 PM),Somewhere in Between,22:00,07:00,7,Good,6,3,Moderately,7,100,Moderate,Afternoon,Sometimes
+2024-11-27 14:10:11,M RAKSHITHA,m.rakshitha@example.com,22,Student,Evening (5-9 PM),Night Owl 🦉,23:30,08:30,7,Good,8,4,Moderately,7,90,Moderate,Evening,Sometimes
+2024-11-26 11:55:55,M R SURYA RAJ,mr.suryaraj@example.com,23,Student,Night (9 PM-12 AM),Night Owl 🦉,00:00,09:00,7,Fair,9,4,Very,6,75,High,Night,Often
+2024-11-25 16:40:44,NIVETHA D,nivetha.d@example.com,21,Student,Morning (8-11 AM),Early Bird 🌅,22:00,06:30,7,Excellent,6,2,Slightly,8,120,Low,Morning,Rarely
+2024-11-24 13:25:33,PARTHASARATHY R,parthasarathy.r@example.com,22,Student,Afternoon (2-5 PM),Somewhere in Between,22:30,07:30,7,Good,7,3,Moderately,7,95,Moderate,Afternoon,Sometimes
+2024-11-23 10:15:22,PONMADHU A M,ponmadhu.am@example.com,20,Student,Evening (5-9 PM),Night Owl 🦉,23:00,08:00,7,Good,8,3,Moderately,7,85,Moderate,Evening,Sometimes
+2024-11-22 15:05:11,PRIYANKA K,priyanka.k@example.com,23,Student,Night (9 PM-12 AM),Night Owl 🦉,00:30,09:30,7,Fair,10,5,Very,6,70,High,Night,Often
+2024-11-21 12:50:55,SANJAY S,sanjay.s@example.com,21,Student,Morning (8-11 AM),Early Bird 🌅,21:30,06:00,8,Excellent,7,2,Slightly,9,140,Low,Morning,Rarely
+2024-11-20 09:35:44,SELVAN MUBESH MUTHAMIL,selvan.mubesh@example.com,22,Student,Afternoon (2-5 PM),Somewhere in Between,22:00,07:00,7,Good,6,3,Moderately,7,100,Moderate,Afternoon,Sometimes
+2024-11-19 14:20:33,S LOCHANA,s.lochana@example.com,20,Student,Evening (5-9 PM),Night Owl 🦉,23:30,08:30,7,Good,8,4,Moderately,7,90,Moderate,Evening,Sometimes
+2024-11-18 11:10:22,SRINIVASAN M,srinivasan.m@example.com,23,Student,Night (9 PM-12 AM),Night Owl 🦉,00:00,09:00,7,Fair,9,4,Very,6,75,High,Night,Often
+2024-11-17 16:55:11,SRIRAMAR T,sriramar.t@example.com,21,Student,Morning (8-11 AM),Early Bird 🌅,22:00,06:30,7,Good,6,2,Slightly,8,115,Low,Morning,Rarely
+2024-11-16 13:40:55,SWARNA M,swarna.m@example.com,22,Student,Afternoon (2-5 PM),Somewhere in Between,22:30,07:30,7,Good,7,3,Moderately,7,95,Moderate,Afternoon,Sometimes
+2024-11-15 10:25:44,UDHAYAPRADAP S,udhayapradap.s@example.com,20,Student,Evening (5-9 PM),Night Owl 🦉,23:00,08:00,7,Good,8,3,Moderately,7,85,Moderate,Evening,Sometimes
+2024-11-14 15:15:33,VISHAL S S M,vishal.ssm@example.com,23,Student,Night (9 PM-12 AM),Night Owl 🦉,01:00,09:30,6,Fair,10,5,Very,6,70,High,Night,Often
+2024-11-13 12:05:22,AANANDHASUBASH S,aanandhasubash.s@example.com,21,Student,Morning (8-11 AM),Early Bird 🌅,21:30,06:00,8,Excellent,7,2,Slightly,9,135,Low,Morning,Rarely
+2024-11-12 09:50:11,GUHAN,guhan@example.com,22,Student,Afternoon (2-5 PM),Somewhere in Between,22:00,07:00,7,Good,6,3,Moderately,7,100,Moderate,Afternoon,Sometimes
+2024-12-16 10:30:45,AKSHATH M,akshath.m2@example.com,21,Student,Evening (5-9 PM),Night Owl 🦉,00:00,08:30,6,Fair,9,4,Very,6,80,High,Night,Often
+2024-12-17 14:45:22,ANAAS RAWOOF S,anaas.rawoof2@example.com,20,Student,Night (9 PM-12 AM),Night Owl 🦉,23:30,09:00,7,Good,8,3,Moderately,7,85,Moderate,Night,Sometimes
+2024-12-18 11:20:33,BALAJI S,balaji.s2@example.com,22,Student,Afternoon (2-5 PM),Early Bird 🌅,21:30,06:00,8,Excellent,6,2,Slightly,9,125,Low,Morning,Rarely
+2024-12-19 15:35:44,BARATH KUMAR E,barath.kumar2@example.com,21,Student,Evening (5-9 PM),Somewhere in Between,22:30,07:30,7,Good,7,3,Moderately,7,95,Moderate,Evening,Sometimes
+2024-12-20 12:50:55,DEEPAKKUMAR S,deepakkumar.s2@example.com,23,Student,Night (9 PM-12 AM),Night Owl 🦉,00:30,09:00,7,Fair,10,5,Very,6,65,High,Night,Often
+2024-12-21 09:15:11,DEEPAK SANJAY,deepak.sanjay2@example.com,20,Student,Morning (8-11 AM),Early Bird 🌅,22:00,06:30,7,Good,7,2,Slightly,8,110,Low,Morning,Rarely
+2024-12-22 10:45:30,S.J.Kavitha,sjkavitha.se@vistas.ac.in,36,Teacher,Morning (8-11 AM),Somewhere in Between,22:30,06:30,7,Good,6,2,Slightly,8,120,Moderate,Morning,Rarely
+2024-12-22 11:30:15,Sasmitha,sasmitha@example.com,15,Student,Evening (5-9 PM),Night Owl 🦉,23:00,07:30,7,Good,9,5,Very,6,70,Moderate,Evening,Sometimes
+2024-12-22 12:15:45,Purushoth,purushoth@example.com,15,Student,Afternoon (2-5 PM),Somewhere in Between,22:00,07:00,8,Excellent,7,4,Moderately,7,90,Low,Afternoon,Rarely
+2024-12-22 13:00:20,Janani,janani@example.com,20,Student,Night (9 PM-12 AM),Night Owl 🦉,00:00,08:30,6,Fair,8,4,Moderately,7,85,Moderate,Night,Sometimes
+2024-12-22 14:20:30,Aravind,aravind@example.com,19,Student,Morning (8-11 AM),Early Bird 🌅,22:00,06:30,7,Good,6,2,Slightly,8,110,Low,Morning,Rarely
+2024-12-22 15:10:45,Krithkumar,krithkumar@example.com,20,Student,Night (9 PM-12 AM),Night Owl 🦉,23:30,08:30,7,Fair,9,4,Moderately,7,80,Moderate,Night,Sometimes
+2024-12-22 16:05:20,Harini,harini@example.com,19,Student,Afternoon (2-5 PM),Somewhere in Between,22:30,07:00,7,Good,7,3,Moderately,7,95,Moderate,Afternoon,Sometimes
+2024-12-22 17:15:55,Yuvashree,yuvashree@example.com,20,Student,Evening (5-9 PM),Night Owl 🦉,23:00,08:00,7,Good,8,4,Moderately,7,85,Moderate,Evening,Sometimes
+2024-12-22 18:30:10,Sandhiya,sandhiya@example.com,19,Student,Morning (8-11 AM),Early Bird 🌅,21:30,06:00,8,Excellent,6,2,Slightly,9,130,Low,Morning,Rarely
+2024-12-22 19:45:25,Keerthi,keerthi@example.com,20,Student,Night (9 PM-12 AM),Night Owl 🦉,00:00,09:00,6,Fair,10,5,Very,6,70,High,Night,Often
+2024-12-23 08:30:15,Lakshmi,lakshmi@example.com,37,Other,Morning (8-11 AM),Early Bird 🌅,22:00,06:00,7,Good,5,2,Slightly,8,100,Moderate,Morning,Rarely
+2024-12-23 09:15:40,Kamala,kamala@example.com,45,Other,Morning (8-11 AM),Early Bird 🌅,21:30,05:30,8,Excellent,4,1,Slightly,9,120,Low,Morning,Rarely
+2024-12-23 10:20:25,Latha,latha@example.com,53,Other,Afternoon (2-5 PM),Somewhere in Between,22:30,06:30,7,Good,5,2,Moderately,7,90,Moderate,Afternoon,Sometimes
+2024-12-23 11:45:50,Geetha,geetha@example.com,48,Other,Morning (8-11 AM),Early Bird 🌅,22:00,06:00,7,Good,6,2,Slightly,8,110,Moderate,Morning,Rarely
+2024-12-23 13:10:35,Lekha,lekha@example.com,41,Other,Afternoon (2-5 PM),Somewhere in Between,23:00,07:00,6,Fair,6,3,Moderately,7,85,Moderate,Afternoon,Sometimes
+2024-12-23 14:30:20,Dhamu,dhamu@example.com,47,Other,Morning (8-11 AM),Early Bird 🌅,21:30,05:30,8,Excellent,5,1,Slightly,9,115,Low,Morning,Rarely
+2024-12-23 15:20:10,Aarav Kumar,aarav.kumar@example.com,24,Software Developer,Morning (8-11 AM),Early Bird 🌅,22:00,06:30,7,Good,8,2,Slightly,8,120,Low,Morning,Rarely
+2024-12-23 16:10:25,Harini Priya,harini.priya@example.com,23,Student,Evening (5-9 PM),Night Owl 🦉,23:30,08:00,7,Good,9,4,Moderately,7,85,Moderate,Evening,Sometimes
+2024-12-23 17:05:40,Nithish Kumar,nithish.kumar@example.com,25,Software Developer,Night (9 PM-12 AM),Night Owl 🦉,00:00,09:00,7,Fair,10,3,Moderately,7,90,Moderate,Night,Sometimes
+2024-12-23 18:15:55,Kavya Sri,kavya.sri@example.com,22,Student,Afternoon (2-5 PM),Somewhere in Between,22:30,07:00,7,Good,7,3,Moderately,7,95,Moderate,Afternoon,Sometimes
+2024-12-23 19:30:20,Dhanush Raj,dhanush.raj@example.com,26,Software Developer,Morning (8-11 AM),Early Bird 🌅,21:30,06:00,8,Excellent,7,2,Slightly,9,130,Low,Morning,Rarely
+2024-12-24 08:45:35,Swetha Lakshmi,swetha.lakshmi@example.com,23,Student,Night (9 PM-12 AM),Night Owl 🦉,23:00,08:30,7,Good,8,4,Moderately,7,80,Moderate,Night,Sometimes
+2024-12-24 09:20:50,Vignesh Arjun,vignesh.arjun@example.com,24,Software Developer,Afternoon (2-5 PM),Somewhere in Between,22:00,07:00,7,Good,8,3,Slightly,8,100,Moderate,Afternoon,Rarely
+2024-12-24 10:35:15,Ananya Devi,ananya.devi@example.com,22,Student,Evening (5-9 PM),Night Owl 🦉,00:00,08:30,6,Fair,9,5,Very,6,70,High,Evening,Often
+2024-12-24 11:50:30,Karthikeya M,karthikeya.m@example.com,25,Software Developer,Morning (8-11 AM),Early Bird 🌅,22:00,06:30,7,Good,7,2,Slightly,8,115,Low,Morning,Rarely
+2024-12-24 13:15:45,Sahana R,sahana.r@example.com,23,Student,Night (9 PM-12 AM),Night Owl 🦉,23:30,09:00,7,Fair,10,4,Very,6,75,High,Night,Often
+2024-12-24 14:30:20,Praveen Kumar,praveen.kumar@example.com,26,Software Developer,Morning (8-11 AM),Early Bird 🌅,21:30,06:00,8,Excellent,6,2,Slightly,9,125,Low,Morning,Rarely
+2024-12-24 15:45:35,Deepika S,deepika.s@example.com,24,Student,Afternoon (2-5 PM),Somewhere in Between,22:30,07:30,7,Good,7,3,Moderately,7,90,Moderate,Afternoon,Sometimes
+2024-12-24 16:20:50,Yuvan Shankar,yuvan.shankar@example.com,22,Software Developer,Evening (5-9 PM),Night Owl 🦉,23:00,08:00,7,Good,9,3,Moderately,7,85,Moderate,Evening,Sometimes
+2024-12-24 17:35:15,Meera Nivetha,meera.nivetha@example.com,25,Student,Night (9 PM-12 AM),Night Owl 🦉,00:30,09:30,7,Fair,10,5,Very,6,65,High,Night,Often
+2024-12-24 18:50:30,Ashwin Kumar,ashwin.kumar@example.com,23,Software Developer,Morning (8-11 AM),Early Bird 🌅,22:00,06:30,7,Good,7,2,Slightly,8,110,Low,Morning,Rarely
+2024-12-25 08:15:45,Dharani Priya,dharani.priya@example.com,26,Student,Afternoon (2-5 PM),Somewhere in Between,22:30,07:00,7,Good,6,3,Moderately,7,95,Moderate,Afternoon,Sometimes
+2024-12-25 09:30:20,Lokeshwaran S,lokeshwaran.s@example.com,24,Software Developer,Evening (5-9 PM),Night Owl 🦉,23:30,08:30,7,Good,8,3,Moderately,7,90,Moderate,Evening,Sometimes
+2024-12-25 10:45:35,Keerthana M,keerthana.m@example.com,22,Student,Night (9 PM-12 AM),Night Owl 🦉,00:00,09:00,6,Fair,9,4,Very,6,70,High,Night,Often
+2024-12-25 12:10:50,Harishankar R,harishankar.r@example.com,25,Software Developer,Morning (8-11 AM),Early Bird 🌅,21:30,06:00,8,Excellent,7,2,Slightly,9,135,Low,Morning,Rarely
+2024-12-25 13:25:15,Rithika Devi,rithika.devi@example.com,23,Student,Afternoon (2-5 PM),Somewhere in Between,22:00,07:00,7,Good,7,3,Moderately,7,100,Moderate,Afternoon,Sometimes
+2024-12-25 14:40:30,Gokul Krishna,gokul.krishna@example.com,26,Software Developer,Evening (5-9 PM),Night Owl 🦉,23:00,08:00,7,Good,8,3,Moderately,7,85,Moderate,Evening,Sometimes
+2024-12-25 15:55:45,Janani Sri,janani.sri@example.com,24,Student,Night (9 PM-12 AM),Night Owl 🦉,23:30,09:00,7,Fair,10,5,Very,6,75,High,Night,Often
+2024-12-25 17:20:20,Adhithya V,adhithya.v@example.com,22,Software Developer,Morning (8-11 AM),Early Bird 🌅,22:00,06:30,7,Good,7,2,Slightly,8,115,Low,Morning,Rarely
+2024-12-25 18:35:35,Pooja Lakshmi,pooja.lakshmi@example.com,25,Student,Afternoon (2-5 PM),Somewhere in Between,22:30,07:30,7,Good,6,3,Moderately,7,95,Moderate,Afternoon,Sometimes
+2024-12-25 19:50:50,Naveen Raj,naveen.raj@example.com,23,Software Developer,Evening (5-9 PM),Night Owl 🦉,23:00,08:00,7,Good,9,3,Moderately,7,90,Moderate,Evening,Sometimes
+2024-12-26 08:15:15,Subiksha R,subiksha.r@example.com,26,Student,Night (9 PM-12 AM),Night Owl 🦉,00:00,09:30,6,Fair,10,4,Very,6,70,High,Night,Often
+2024-12-26 09:30:30,Manoj Kumar,manoj.kumar@example.com,24,Software Developer,Morning (8-11 AM),Early Bird 🌅,21:30,06:00,8,Excellent,7,2,Slightly,9,130,Low,Morning,Rarely
+2024-12-26 10:45:45,Nandhini Priya,nandhini.priya@example.com,22,Student,Afternoon (2-5 PM),Somewhere in Between,22:00,07:00,7,Good,7,3,Moderately,7,100,Moderate,Afternoon,Sometimes
+2024-12-26 12:10:20,Surya Prakash,surya.prakash@example.com,25,Software Developer,Evening (5-9 PM),Night Owl 🦉,23:30,08:30,7,Good,8,3,Moderately,7,85,Moderate,Evening,Sometimes
+2024-12-26 13:25:35,Tharun K,tharun.k@example.com,23,Student,Night (9 PM-12 AM),Night Owl 🦉,00:00,09:00,7,Fair,9,4,Very,6,75,High,Night,Often
