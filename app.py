@@ -151,7 +151,7 @@ def admin_login():
     st.sidebar.subheader("🔐 Admin Access")
     password = st.sidebar.text_input("Password", type="password", key="admin_pass")
     if st.sidebar.button("Login"):
-        if password == "admin123":
+        if password == "DGPN7@nive":
             st.session_state.admin_logged_in = True
             st.sidebar.success("Logged in!")
         else:
