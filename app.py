@@ -138,75 +138,6 @@ def generate_sample_data(n=100):
         })
     return pd.DataFrame(data)
 
-def load_initial_participants():
-    """Load initial 30 participants data"""
-    participants = [
-        {'name': 'Arjun Kumar', 'email': 'arjun.kumar97@gmail.com', 'age': 27, 'occupation': 'Software Developer'},
-        {'name': 'Nivetha Raj', 'email': 'nivetha_raj21@yahoo.com', 'age': 23, 'occupation': 'Student'},
-        {'name': 'Karthik Suresh', 'email': 'karthik.suresh2002@outlook.com', 'age': 22, 'occupation': 'Student'},
-        {'name': 'Priya Dharshini', 'email': 'priya.dharshini18@gmail.com', 'age': 26, 'occupation': 'Designer'},
-        {'name': 'Vignesh M', 'email': 'vignesh.m45@yahoo.com', 'age': 29, 'occupation': 'Software Developer'},
-        {'name': 'Harini Balaji', 'email': 'harini.balaji03@gmail.com', 'age': 21, 'occupation': 'Student'},
-        {'name': 'Sathish Kumar', 'email': 'sathishkumar88@outlook.com', 'age': 36, 'occupation': 'Manager'},
-        {'name': 'Divya Lakshmi', 'email': 'divya_lakshmi24@gmail.com', 'age': 28, 'occupation': 'Teacher'},
-        {'name': 'Praveen Raj', 'email': 'praveen.raj76@yahoo.com', 'age': 48, 'occupation': 'Manager'},
-        {'name': 'Keerthana S', 'email': 'keerthana.s14@gmail.com', 'age': 24, 'occupation': 'Designer'},
-        {'name': 'Dinesh Babu', 'email': 'dinesh.babu1999@outlook.com', 'age': 25, 'occupation': 'Software Developer'},
-        {'name': 'Anusha R', 'email': 'anusha_r56@gmail.com', 'age': 34, 'occupation': 'Teacher'},
-        {'name': 'Gokul Krishna', 'email': 'gokul.krishna11@yahoo.com', 'age': 23, 'occupation': 'Student'},
-        {'name': 'Megha Priya', 'email': 'megha.priya84@gmail.com', 'age': 40, 'occupation': 'Manager'},
-        {'name': 'Saravanan K', 'email': 'saravanan.k32@outlook.com', 'age': 32, 'occupation': 'Software Developer'},
-        {'name': 'Janani V', 'email': 'janani.v09@gmail.com', 'age': 25, 'occupation': 'Designer'},
-        {'name': 'Naveen Kumar', 'email': 'naveen_kumar63@yahoo.com', 'age': 33, 'occupation': 'Freelancer'},
-        {'name': 'Swetha Ram', 'email': 'swetha.ram27@gmail.com', 'age': 27, 'occupation': 'Healthcare Worker'},
-        {'name': 'Lokeshwaran T', 'email': 'lokeshwaran.t51@outlook.com', 'age': 31, 'occupation': 'Software Developer'},
-        {'name': 'Aishwarya Devi', 'email': 'aishwarya.devi73@gmail.com', 'age': 43, 'occupation': 'Entrepreneur'},
-        {'name': 'Balaji M', 'email': 'balaji.m20@yahoo.com', 'age': 24, 'occupation': 'Student'},
-        {'name': 'Tharun Prakash', 'email': 'tharun.prakash66@gmail.com', 'age': 36, 'occupation': 'Manager'},
-        {'name': 'Revathi S', 'email': 'revathi.s39@outlook.com', 'age': 29, 'occupation': 'Teacher'},
-        {'name': 'Ashwin Kumar', 'email': 'ashwin.kumar12@gmail.com', 'age': 22, 'occupation': 'Student'},
-        {'name': 'Kavya Shree', 'email': 'kavya.shree90@yahoo.com', 'age': 30, 'occupation': 'Designer'},
-        {'name': 'Manikandan R', 'email': 'manikandan.r47@gmail.com', 'age': 37, 'occupation': 'Software Developer'},
-        {'name': 'Abinaya L', 'email': 'abinaya.l28@outlook.com', 'age': 28, 'occupation': 'Healthcare Worker'},
-        {'name': 'Ramesh Kannan', 'email': 'ramesh.kannan64@gmail.com', 'age': 44, 'occupation': 'Manager'},
-        {'name': 'Shalini Priya', 'email': 'shalini.priya17@yahoo.com', 'age': 27, 'occupation': 'Teacher'},
-        {'name': 'Vikram Raj', 'email': 'vikram.raj58@gmail.com', 'age': 38, 'occupation': 'Entrepreneur'}
-    ]
-    
-    np.random.seed(42)
-    data = []
-    for p in participants:
-        chronotype = np.random.choice(['Night Owl 🦉', 'Early Bird 🌅', 'Somewhere in Between'])
-        productivity = np.random.randint(5, 10)
-        sleep = np.random.randint(5, 9)
-        
-        data.append({
-            'timestamp': (datetime.now() - pd.Timedelta(days=np.random.randint(0, 15))).strftime("%Y-%m-%d %H:%M:%S"),
-            'name': p['name'],
-            'email': p['email'],
-            'age': p['age'],
-            'occupation': p['occupation'],
-            'work_hours': np.random.choice(['Morning (8-11 AM)', 'Afternoon (2-5 PM)', 'Evening (5-9 PM)', 'Night (9 PM-12 AM)']),
-            'chronotype': chronotype,
-            'sleep_time': f"{np.random.randint(21, 24):02d}:00",
-            'wake_time': f"{np.random.randint(6, 9):02d}:00",
-            'sleep_duration': sleep,
-            'sleep_quality': np.random.choice(['Fair', 'Good', 'Excellent']),
-            'device_usage': np.random.randint(4, 12),
-            'social_media': np.random.randint(1, 6),
-            'distraction_level': np.random.choice(['Slightly', 'Moderately', 'Very']),
-            'productivity': productivity,
-            'focus_duration': np.random.randint(30, 180),
-            'stress_level': np.random.choice(['Low', 'Moderate', 'High']),
-            'energy_pattern': np.random.choice(['Morning', 'Afternoon', 'Evening', 'Night']),
-            'next_day_fatigue': np.random.choice(['Sometimes', 'Often', 'Rarely'])
-        })
-    
-    df = pd.DataFrame(data)
-    if not os.path.exists(CSV_FILE):
-        df.to_csv(CSV_FILE, index=False)
-    return df
-
 def check_admin():
     if 'admin_logged_in' not in st.session_state:
         st.session_state.admin_logged_in = False
@@ -230,10 +161,6 @@ def admin_login():
             st.session_state.admin_logged_in = False
 
 admin_login()
-
-# Load initial participants on first run
-if not os.path.exists(CSV_FILE):
-    load_initial_participants()
 
 # Only Survey is public, everything else needs admin
 if check_admin():
